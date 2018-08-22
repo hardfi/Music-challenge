@@ -1,0 +1,36 @@
+<div class="ui-g-10 ui-g-offset-1">
+  <p-fieldset legend="Music Challenge - Round 2">
+    <app-scores></app-scores>
+    <div class="ui-g-12">
+      <p-panel class="ui-g-6"
+               [toggleable]="true"
+               [collapsed]="true"
+               #panel
+               *ngFor="let riddle of riddles"
+               [header]="riddle.title">
+        <div class="ui-g riddle">
+          <div (click)="showAnswer(riddle.answer)">{{riddle.text}}</div>
+        </div>
+      </p-panel>
+    </div>
+    <app-timer></app-timer>
+    <div class="ui-g-12">
+      <p-card>
+        <a [routerLink]="['/home']">Main</a> |
+        <a [routerLink]="['/round3']">Round 3</a>
+      </p-card>
+    </div>
+  </p-fieldset>
+</div>
+
+<p-dialog header="And the answer is..."
+          [(visible)]="display"
+          [modal]="true"
+          [responsive]="true"
+          [width]="550"
+          [minWidth]="500"
+          [minY]="70"
+          [maximizable]="true"
+          [baseZIndex]="10000">
+  <div style="font-size: 2em">{{answer}}</div>
+</p-dialog>

@@ -1,0 +1,42 @@
+<div class="ui-g-12">
+  <p-card>
+    <div class="ui-g vc">
+      <div class="ui-g-6">
+        <input type="text" pInputText [(ngModel)]="timer" class="timerInput" (change)="printTime = timer"/>
+        <button pButton
+                type="button"
+                (click)="count()"
+                label="Start">
+        </button>
+        <button pButton type="button"
+                class="ui-button-warning"
+                (click)="pauseTimer()"
+                *ngIf="!paused"
+                label="Pause">
+        </button>
+        <button pButton
+                type="button"
+                (click)="pauseTimer()"
+                class="ui-button-success"
+                *ngIf="paused"
+                label="Play">
+        </button>
+      </div>
+      <div class="ui-g-6 vc timer">
+        {{printTime}}
+      </div>
+    </div>
+  </p-card>
+</div>
+
+<p-dialog header="Times up!"
+          [(visible)]="displayTime"
+          [modal]="true"
+          [responsive]="true"
+          [minWidth]="500"
+          [minY]="500"
+          [baseZIndex]="10000">
+  <div class="ui-g">
+    <img src="assets/timesup.jpg" style="height: 500px;">
+  </div>
+</p-dialog>

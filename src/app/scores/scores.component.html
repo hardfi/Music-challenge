@@ -1,0 +1,38 @@
+<div class="ui-g-12">
+  <p-card>
+    <div class="ui-g">
+      <div class="ui-g-6 vc" style="justify-content: flex-start">
+        <div class="ui-g-5 vc">
+          <button pButton (click)="scores(1, 'add')" class="big ui-button-success" type="button"
+                  icon="pi pi-plus"></button>
+          <button pButton
+                  (click)="scores(1, 'sub')"
+                  class="big ui-button-warning"
+                  type="button"
+                  icon="pi pi-minus">
+          </button>
+        </div>
+        <div class="ui-g-4 vc name">
+          {{teamOneName}}
+        </div>
+        <div class="ui-g-3 vc score" style="justify-content: flex-end">
+          <span>{{teamOneScore}}</span>
+        </div>
+      </div>
+      <div class="ui-g-6 vc" style="justify-content: flex-end">
+        <div class="ui-g-3 score">
+          <span>{{teamTwoScore}}</span>
+        </div>
+        <div class="ui-g-4 vc name" style="justify-content: flex-end">
+          {{teamTwoName}}
+        </div>
+        <div class="ui-g-5 vc">
+          <button pButton (click)="scores(2, 'add')" class="big ui-button-success" type="button"
+                  icon="pi pi-plus"></button>
+          <button pButton (click)="scores(2, 'sub')" class="big ui-button-warning" type="button"
+                  icon="pi pi-minus"></button>
+        </div>
+      </div>
+    </div>
+  </p-card>
+</div>

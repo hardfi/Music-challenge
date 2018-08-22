@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+.vc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big {
+  width: 5em !important;
+}
+
+.score {
+  font-size: 10em;
+}
+
+.ui-card-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #00b500;
+  font-size: 2em !important;
+}
+
+button {
+  margin-left: 10px;
+  height: 2em;
+}
+
+p-card .ui-card {
+  height: 100%;
+}
+
+.timer {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: end;
+  padding: 0 !important;
+}
+
+.timerInput {
+  height: 2em;
+  width: 3em;
+  text-align: center;
+}
+
+.warningPop {
+  background-color: red;
+}
+
+.ui-panel-title, .riddle {
+  font-size: 1.5em !important;
+}

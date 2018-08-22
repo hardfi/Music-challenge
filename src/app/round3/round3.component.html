@@ -1,0 +1,22 @@
+<div class="ui-g-10 ui-g-offset-1">
+  <p-fieldset legend="Music Challenge - Round 3">
+    <app-scores></app-scores>
+    <div class="ui-g-12">
+      <ng-container *ngFor="let riddle of riddles">
+      <p-panel class="ui-g-4" [toggleable]="true" [collapsed]="true"
+               [header]="riddle.title" (onBeforeToggle)="timer.count()">
+        <div class="ui-g riddle">
+          <div (click)="delete(riddle.text)">{{riddle.text}}</div>
+        </div>
+      </p-panel>
+      </ng-container>
+    </div>
+    <app-timer #timer></app-timer>
+    <div class="ui-g-12">
+      <p-card>
+        <a [routerLink]="['/home']">Main</a> |
+        <a [routerLink]="['/round2']">Round 2</a>
+      </p-card>
+    </div>
+  </p-fieldset>
+</div>
