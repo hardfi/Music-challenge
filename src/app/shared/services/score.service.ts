@@ -6,22 +6,23 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ScoreService {
-  teamOneName: string;
-  teamTwoName: string;
-  teamOneScore: number;
-  teamTwoScore: number;
-  teamOneSc: any;
-  teamTwoSc: any;
+  private teamOneName = 'Team 1';
+  private teamTwoName = 'Team 2';
+  private teamOneScore = 0;
+  private teamTwoScore = 0;
+  public teamOneSc: any;
+  public teamTwoSc: any;
 
   constructor() {
-    const saved = localStorage.getItem('savedData');
-    if (saved) {
-      const data = JSON.parse(saved);
-      this.teamOneName = (data.team1name ? data.team1name : 'Team 1');
-      this.teamTwoName = (data.team2name ? data.team2name : 'Team 2');
-      this.teamOneScore = (data.team1score ? data.team1score : 0);
-      this.teamTwoScore = (data.team2score ? data.team2score : 0);
+    const data = JSON.parse(localStorage.getItem('savedData'));
+
+    if (data) {
+      this.teamOneName = data.team1name;
+      this.teamTwoName = data.team2name;
+      this.teamOneScore = data.team1score;
+      this.teamTwoScore = data.team2score;
     }
+
     this.teamOneSc = new BehaviorSubject<number>(this.teamOneScore);
     this.teamTwoSc = new BehaviorSubject<number>(this.teamTwoScore);
   }
