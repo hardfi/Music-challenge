@@ -18,14 +18,20 @@
             </button>
             <button pButton
                     type="button"
-                    (click)="pointsOne(1, 'sub')"
-                    icon="pi pi-minus"
+                    label="-1"
+                    (click)="subPoints(1)"
                     class="ui-button-warning big">
             </button>
             <button pButton
                     type="button"
-                    (click)="pointsOne(1, 'add')"
-                    icon="pi pi-plus"
+                    label="+1"
+                    (click)="addPoints(1, 1)"
+                    class="ui-button-success big">
+            </button>
+            <button pButton
+                    type="button"
+                    label="+2"
+                    (click)="addPoints(1, 2)"
                     class="ui-button-success big">
             </button>
           </div>
@@ -50,14 +56,20 @@
             </button>
             <button pButton
                     type="button"
-                    icon="pi pi-minus"
-                    (click)="pointsOne(2, 'sub')"
+                    label="-1"
+                    (click)="subPoints(2)"
                     class="ui-button-warning big">
             </button>
             <button pButton
                     type="button"
-                    (click)="pointsOne(2, 'add')"
-                    icon="pi pi-plus"
+                    label="+1"
+                    (click)="addPoints(2, 1)"
+                    class="ui-button-success big">
+            </button>
+            <button pButton
+                    type="button"
+                    label="+2"
+                    (click)="addPoints(2, 2)"
                     class="ui-button-success big">
             </button>
           </div>

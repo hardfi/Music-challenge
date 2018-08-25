@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {P} from '@angular/core/src/render3';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ export class ScoreService {
   teamTwoName: string;
   teamOneScore: any = 0;
   teamTwoScore: any = 0;
+  teamOneSc: any;
+  teamTwoSc: any;
 
   constructor() {
     const saved = localStorage.getItem('savedData');
@@ -19,21 +22,47 @@ export class ScoreService {
       this.teamOneScore = data.team1score;
       this.teamTwoScore = data.team2score;
     }
+    this.teamOneSc = new BehaviorSubject<number>(this.teamOneScore);
+    this.teamTwoSc = new BehaviorSubject<number>(this.teamTwoScore);
   }
 
-  set(team, key, value) {
+  addPoints(team, amount?) {
     if (team === 1) {
-      key === 'name' ? this.teamOneName = value : this.teamOneScore = value;
+      this.teamOneScore = this.teamOneScore + (amount ? amount : 1);
     } else {
-      key === 'name' ? this.teamTwoName = value : this.teamTwoScore = value;
+      this.teamTwoScore = this.teamTwoScore + (amount ? amount : 1);
     }
+    this.updateValues();
+    this.setStorage();
+  }
 
+  subPoints(team, amount?) {
+    if (team === 1) {
+      this.teamOneScore = this.teamOneScore - (amount ? amount : 1);
+    } else {
+      this.teamTwoScore = this.teamTwoScore - (amount ? amount : 1);
+    }
+    this.updateValues();
+    this.setStorage();
+  }
+
+  updateValues() {
+    this.teamOneSc.next(this.teamOneScore);
+    this.teamTwoSc.next(this.teamTwoScore);
+  }
+
+  setStorage() {
     localStorage.setItem('savedData', JSON.stringify({
       team1name: this.teamOneName,
       team2name: this.teamTwoName,
       team1score: this.teamOneScore,
       team2score: this.teamTwoScore
     }));
+  }
+
+  setNames(team, name) {
+    this[team] = name;
+    this.setStorage();
   }
 
   get(team, key) {

@@ -6,7 +6,7 @@
 }
 
 .big {
-  width: 5em !important;
+  width: 4em !important;
 }
 
 .score {
@@ -48,4 +48,9 @@ p-card .ui-card {
 
 .ui-panel-title, .riddle {
   font-size: 1.5em !important;
+}
+
+button.big .ui-button-text {
+  font-weight: bold !important;
+  letter-spacing: 3px !important;
 }

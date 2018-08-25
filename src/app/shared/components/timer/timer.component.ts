@@ -11,17 +11,20 @@ export class TimerComponent implements OnInit {
   paused: boolean;
   printTime: number;
   displayTime: boolean;
+  initial: boolean;
 
   constructor() {
     this.timer = 10;
+    this.initial = true;
   }
 
   ngOnInit() {
   }
 
   count(time?) {
+    this.initial = false;
     if (!time) {
-      this.printTime = time || this.timer;
+      this.printTime = this.timer;
     }
     let counter = time || this.timer;
     this.paused = false;

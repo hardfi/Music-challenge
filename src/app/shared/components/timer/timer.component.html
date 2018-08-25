@@ -2,7 +2,10 @@
   <p-card>
     <div class="ui-g vc">
       <div class="ui-g-6">
-        <input type="text" pInputText [(ngModel)]="timer" class="timerInput" (change)="printTime = timer"/>
+        <input type="text" pInputText
+               [(ngModel)]="timer"
+               class="timerInput"
+               (change)="printTime = timer"/>
         <button pButton
                 type="button"
                 (click)="count()"
@@ -11,7 +14,7 @@
         <button pButton type="button"
                 class="ui-button-warning"
                 (click)="pauseTimer()"
-                *ngIf="!paused"
+                *ngIf="!paused && !initial && printTime !== 0"
                 label="Pause">
         </button>
         <button pButton

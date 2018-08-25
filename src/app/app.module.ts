@@ -14,30 +14,19 @@ import {AppComponent} from './app.component';
 import {Round2Component} from './round2/round2.component';
 import {RouterModule} from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { TimerComponent } from './timer/timer.component';
-import {ScoreService} from './score.service';
-import { ScoresComponent } from './scores/scores.component';
 import { Round3Component } from './round3/round3.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Round2Component,
     MainComponent,
-    TimerComponent,
-    ScoresComponent,
+    Round2Component,
     Round3Component
   ],
   imports: [
     BrowserModule,
-    CardModule,
-    PanelModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-    DialogModule,
-    InputTextModule,
-    FieldsetModule,
-    FormsModule,
+    SharedModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: MainComponent},
@@ -45,8 +34,6 @@ import { Round3Component } from './round3/round3.component';
       {path: 'round3', component: Round3Component}
     ]),
   ],
-  providers:
-    [ScoreService],
   bootstrap:
     [AppComponent]
 })

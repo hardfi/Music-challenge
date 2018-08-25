@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ScoreService} from '../score.service';
+import {ScoreService} from '../shared/services/score.service';
 
 @Component({
   selector: 'app-main',
@@ -23,28 +23,22 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.teamOneScore = this.ss.get(1, 's');
-    this.teamTwoScore = this.ss.get(2, 's');
     this.teamOneName = this.ss.get(1, 'name');
     this.teamTwoName = this.ss.get(2, 'name');
+    this.ss.teamOneSc.subscribe(value => this.teamOneScore = value);
+    this.ss.teamTwoSc.subscribe(value => this.teamTwoScore = value);
   }
 
-  pointsOne(team, action) {
-    let t1s = this.teamOneScore;
-    let t2s = this.teamTwoScore;
-    if (action === 'sub') {
-      team === 1 ? t1s-- : t2s--;
-    } else {
-      team === 1 ? t1s++ : t2s++;
-    }
-    this.teamOneScore = t1s;
-    this.teamTwoScore = t2s;
+  addPoints(team, amount) {
+    this.ss.addPoints(team, amount);
+  }
 
-    this.ss.set(1, 's', this.teamOneScore);
-    this.ss.set(2, 's', this.teamTwoScore);
+  subPoints(team, amount?) {
+    this.ss.subPoints(team, amount);
   }
 
   showPopup(teamNum?) {
+    this.teamName = '';
     this.display = !this.display;
     this.selectedTeam = teamNum;
   }
@@ -52,12 +46,11 @@ export class MainComponent implements OnInit {
   saveName() {
     if (this.selectedTeam === 'Team 1') {
       this.teamOneName = this.teamName;
+      this.ss.setNames('teamOneName', this.teamOneName);
     } else {
       this.teamTwoName = this.teamName;
+      this.ss.setNames('teamTwoName', this.teamTwoName);
     }
     this.showPopup();
-
-    this.ss.set(1, 'name', this.teamOneName);
-    this.ss.set(2, 'name', this.teamTwoName);
   }
 }

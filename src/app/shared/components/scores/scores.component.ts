@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ScoreService} from '../score.service';
+import {ScoreService} from '../../services/score.service';
 
 @Component({
   selector: 'app-scores',
@@ -37,7 +37,5 @@ export class ScoresComponent implements OnInit {
   }
 
   setScoresService() {
-    this.ss.set(1, 's', this.teamOneScore);
-    this.ss.set(2, 's', this.teamTwoScore);
   }
 }
