@@ -16,26 +16,17 @@ export class ScoresComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.teamOneScore = this.ss.get(1, 's');
-    this.teamTwoScore = this.ss.get(2, 's');
-    this.teamOneName = this.ss.get(1, 'name');
-    this.teamTwoName = this.ss.get(2, 'name');
+    this.teamOneName = this.ss.getNames('teamOneName');
+    this.teamTwoName = this.ss.getNames('teamTwoName');
+    this.ss.teamOneSc.subscribe(value => this.teamOneScore = value);
+    this.ss.teamTwoSc.subscribe(value => this.teamTwoScore = value);
   }
 
-  scores(team, act) {
-    if (team === 1 && act === 'sub') {
-      this.teamOneScore--;
-    } else if (team === 1 && act === 'add') {
-      this.teamOneScore++;
-    } else if (team === 2 && act === 'sub') {
-      this.teamTwoScore--;
-    } else if (team === 2 && act === 'add') {
-      this.teamTwoScore++;
-    }
-
-    this.setScoresService();
+  addPoints(team, amount) {
+    this.ss.addPoints(team, amount);
   }
 
-  setScoresService() {
+  subPoints(team, amount?) {
+    this.ss.subPoints(team, amount);
   }
 }

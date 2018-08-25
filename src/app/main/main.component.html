@@ -19,19 +19,19 @@
             <button pButton
                     type="button"
                     label="-1"
-                    (click)="subPoints(1)"
+                    (click)="subPoints('teamOneScore')"
                     class="ui-button-warning big">
             </button>
             <button pButton
                     type="button"
                     label="+1"
-                    (click)="addPoints(1, 1)"
+                    (click)="addPoints('teamOneScore', 1)"
                     class="ui-button-success big">
             </button>
             <button pButton
                     type="button"
                     label="+2"
-                    (click)="addPoints(1, 2)"
+                    (click)="addPoints('teamOneScore', 2)"
                     class="ui-button-success big">
             </button>
           </div>
@@ -57,19 +57,19 @@
             <button pButton
                     type="button"
                     label="-1"
-                    (click)="subPoints(2)"
+                    (click)="subPoints('teamTwoScore')"
                     class="ui-button-warning big">
             </button>
             <button pButton
                     type="button"
                     label="+1"
-                    (click)="addPoints(2, 1)"
+                    (click)="addPoints('teamTwoScore', 1)"
                     class="ui-button-success big">
             </button>
             <button pButton
                     type="button"
                     label="+2"
-                    (click)="addPoints(2, 2)"
+                    (click)="addPoints('teamTwoScore', 2)"
                     class="ui-button-success big">
             </button>
           </div>

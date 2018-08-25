@@ -8,8 +8,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class ScoreService {
   teamOneName: string;
   teamTwoName: string;
-  teamOneScore: any = 0;
-  teamTwoScore: any = 0;
+  teamOneScore: number;
+  teamTwoScore: number;
   teamOneSc: any;
   teamTwoSc: any;
 
@@ -17,41 +17,33 @@ export class ScoreService {
     const saved = localStorage.getItem('savedData');
     if (saved) {
       const data = JSON.parse(saved);
-      this.teamOneName = data.team1name;
-      this.teamTwoName = data.team2name;
-      this.teamOneScore = data.team1score;
-      this.teamTwoScore = data.team2score;
+      this.teamOneName = (data.team1name ? data.team1name : 'Team 1');
+      this.teamTwoName = (data.team2name ? data.team2name : 'Team 2');
+      this.teamOneScore = (data.team1score ? data.team1score : 0);
+      this.teamTwoScore = (data.team2score ? data.team2score : 0);
     }
     this.teamOneSc = new BehaviorSubject<number>(this.teamOneScore);
     this.teamTwoSc = new BehaviorSubject<number>(this.teamTwoScore);
   }
 
   addPoints(team, amount?) {
-    if (team === 1) {
-      this.teamOneScore = this.teamOneScore + (amount ? amount : 1);
-    } else {
-      this.teamTwoScore = this.teamTwoScore + (amount ? amount : 1);
-    }
+    this[team] = this[team] + (amount ? amount : 1);
     this.updateValues();
     this.setStorage();
   }
 
   subPoints(team, amount?) {
-    if (team === 1) {
-      this.teamOneScore = this.teamOneScore - (amount ? amount : 1);
-    } else {
-      this.teamTwoScore = this.teamTwoScore - (amount ? amount : 1);
-    }
+    this[team] = this[team] - (amount ? amount : 1);
     this.updateValues();
     this.setStorage();
   }
 
-  updateValues() {
+  private updateValues() {
     this.teamOneSc.next(this.teamOneScore);
     this.teamTwoSc.next(this.teamTwoScore);
   }
 
-  setStorage() {
+  private setStorage() {
     localStorage.setItem('savedData', JSON.stringify({
       team1name: this.teamOneName,
       team2name: this.teamTwoName,
@@ -60,20 +52,12 @@ export class ScoreService {
     }));
   }
 
-  setNames(team, name) {
+  setNames(team: string, name: string) {
     this[team] = name;
     this.setStorage();
   }
 
-  get(team, key) {
-    if (team === 1 && key === 'name') {
-      return this.teamOneName;
-    } else if (team === 1 && key !== 'name') {
-      return this.teamOneScore;
-    } else if (team === 2 && key === 'name') {
-      return this.teamTwoName;
-    } else {
-      return this.teamTwoScore;
-    }
+  getNames(team: string): string {
+    return this[team];
   }
 }

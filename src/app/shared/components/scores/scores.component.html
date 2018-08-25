@@ -3,10 +3,12 @@
     <div class="ui-g">
       <div class="ui-g-6 vc" style="justify-content: flex-start">
         <div class="ui-g-5 vc">
-          <button pButton (click)="scores(1, 'add')" class="big ui-button-success" type="button"
+          <button pButton (click)="addPoints('teamOneScore', 1)"
+                  class="big ui-button-success"
+                  type="button"
                   icon="pi pi-plus"></button>
           <button pButton
-                  (click)="scores(1, 'sub')"
+                  (click)="subPoints('teamOneScore', 1)"
                   class="big ui-button-warning"
                   type="button"
                   icon="pi pi-minus">
@@ -27,10 +29,16 @@
           {{teamTwoName}}
         </div>
         <div class="ui-g-5 vc">
-          <button pButton (click)="scores(2, 'add')" class="big ui-button-success" type="button"
-                  icon="pi pi-plus"></button>
-          <button pButton (click)="scores(2, 'sub')" class="big ui-button-warning" type="button"
-                  icon="pi pi-minus"></button>
+          <button pButton (click)="addPoints('teamTwoScore', 1)"
+                  class="big ui-button-success"
+                  type="button"
+                  icon="pi pi-plus">
+          </button>
+          <button pButton (click)="subPoints('teamTwoScore', 1)"
+                  class="big ui-button-warning"
+                  type="button"
+                  icon="pi pi-minus">
+          </button>
         </div>
       </div>
     </div>

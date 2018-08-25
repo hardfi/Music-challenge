@@ -16,15 +16,11 @@ export class MainComponent implements OnInit {
   teamName: string;
 
   constructor(public ss: ScoreService) {
-    this.teamOneName = 'Team 1';
-    this.teamTwoName = 'Team 2';
-    this.teamOneScore = 0;
-    this.teamTwoScore = 0;
   }
 
   ngOnInit() {
-    this.teamOneName = this.ss.get(1, 'name');
-    this.teamTwoName = this.ss.get(2, 'name');
+    this.teamOneName = this.ss.getNames('teamOneName');
+    this.teamTwoName = this.ss.getNames('teamTwoName');
     this.ss.teamOneSc.subscribe(value => this.teamOneScore = value);
     this.ss.teamTwoSc.subscribe(value => this.teamTwoScore = value);
   }
