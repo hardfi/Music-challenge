@@ -1,14 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-
-import {CardModule} from 'primeng/card';
-import {PanelModule} from 'primeng/panel';
-import {ButtonModule} from 'primeng/button';
-import {DialogModule} from 'primeng/dialog';
-import {FieldsetModule} from 'primeng/fieldset';
-import {InputTextModule} from 'primeng/inputtext';
 
 import {AppComponent} from './app.component';
 import {Round2Component} from './round2/round2.component';
@@ -18,6 +9,7 @@ import { Round3Component } from './round3/round3.component';
 import {SharedModule} from './shared/shared.module';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import {routes} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -31,12 +23,7 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
   imports: [
     BrowserModule,
     SharedModule,
-    RouterModule.forRoot([
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'home', component: MainComponent},
-      {path: 'round2', component: Round2Component},
-      {path: 'round3', component: Round3Component}
-    ]),
+    RouterModule.forRoot(routes),
   ],
   bootstrap:
     [AppComponent]

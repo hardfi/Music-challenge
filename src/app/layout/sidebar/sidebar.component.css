@@ -1,9 +1,23 @@
 .btn-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  height: calc(100vh - 280px);
+}
+
+.nav {
+  text-align: center;
+}
+
+h4 {
+  margin: 40px auto 10px;
+  text-transform: uppercase;
 }
 
 button {
   margin: 10px 0;
+}
+
+.nav-btns button {
+  width: 100%;
 }

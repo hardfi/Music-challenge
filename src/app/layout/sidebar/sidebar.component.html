@@ -1,4 +1,12 @@
 <div>Challenge Options</div>
+<div class="mt20 nav">
+  <h4>Go to:</h4>
+  <ng-container *ngFor="let route of currentMenu">
+    <div class="nav-btns vc-col">
+      <button pButton [label]="route.name" [routerLink]="['/' + route.route]" class="ui-button-success"></button>
+    </div>
+  </ng-container>
+</div>
 <div class="btn-container mt20">
   <button pButton label="Reset scores" class="ui-button-warning" (click)="resetScores()"></button>
   <button pButton label="Reset everything" class="ui-button-danger" (click)="resetAll()"></button>
