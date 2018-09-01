@@ -1,1 +1,8 @@
-
+.menu-btn {
+  position: fixed;
+  height: 200px;
+  width: 100px;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}

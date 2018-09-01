@@ -1,0 +1,34 @@
+.ui-menubar {
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  /*position: fixed;*/
+  /*width: 100%;*/
+}
+
+p-menubarsub {
+  display: none;
+}
+
+.ui-menubar-custom {
+  float: left !important;
+  width: 100%;
+  padding: 0;
+}
+
+.bar-content {
+  display: flex;
+  align-items: center;
+}
+
+.bar-content button {
+  margin: 0;
+}
+
+.header-text {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 40px;
+  font-size: 26px;
+  color: #5cb85c;
+}

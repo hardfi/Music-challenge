@@ -19,10 +19,10 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.teamOneName = this.ss.getNames('teamOneName');
-    this.teamTwoName = this.ss.getNames('teamTwoName');
     this.ss.teamOneSc.subscribe(value => this.teamOneScore = value);
     this.ss.teamTwoSc.subscribe(value => this.teamTwoScore = value);
+    this.ss.teamOneNa.subscribe(value => this.teamOneName = value);
+    this.ss.teamTwoNa.subscribe(value => this.teamTwoName = value);
   }
 
   addPoints(team, amount) {

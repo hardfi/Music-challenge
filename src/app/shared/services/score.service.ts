@@ -12,6 +12,8 @@ export class ScoreService {
   private teamTwoScore = 0;
   public teamOneSc: any;
   public teamTwoSc: any;
+  public teamOneNa: any;
+  public teamTwoNa: any;
 
   constructor() {
     const data = JSON.parse(localStorage.getItem('savedData'));
@@ -25,6 +27,8 @@ export class ScoreService {
 
     this.teamOneSc = new BehaviorSubject<number>(this.teamOneScore);
     this.teamTwoSc = new BehaviorSubject<number>(this.teamTwoScore);
+    this.teamOneNa = new BehaviorSubject<string>(this.teamOneName);
+    this.teamTwoNa = new BehaviorSubject<string>(this.teamTwoName);
   }
 
   addPoints(team, amount?) {
@@ -42,6 +46,8 @@ export class ScoreService {
   private updateValues() {
     this.teamOneSc.next(this.teamOneScore);
     this.teamTwoSc.next(this.teamTwoScore);
+    this.teamOneNa.next(this.teamOneName);
+    this.teamTwoNa.next(this.teamTwoName);
   }
 
   private setStorage() {
@@ -55,10 +61,23 @@ export class ScoreService {
 
   setNames(team: string, name: string) {
     this[team] = name;
+    this.updateValues();
     this.setStorage();
   }
 
-  getNames(team: string): string {
-    return this[team];
+  resetAll() {
+    this.teamOneName = 'Team 1';
+    this.teamTwoName = 'Team 2';
+    this.teamOneScore = 0;
+    this.teamTwoScore = 0;
+    this.updateValues();
+    this.setStorage();
+  }
+
+  resetScores() {
+    this.teamOneScore = 0;
+    this.teamTwoScore = 0;
+    this.updateValues();
+    this.setStorage();
   }
 }

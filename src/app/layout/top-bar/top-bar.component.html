@@ -1,0 +1,9 @@
+<p-menubar>
+  <div class="ui-g-10 ui-g-offset-1 bar-content ui-g-nopad">
+    <button pButton="Menu" icon="pi pi-bars" class="ui-button-secondary" (click)="sidebarOpen()"></button>
+    <div class="header-text">Music Challenge</div>
+  </div>
+</p-menubar>
+<p-sidebar [(visible)]="display" position="left">
+  <app-sidebar></app-sidebar>
+</p-sidebar>

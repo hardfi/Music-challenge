@@ -11,6 +11,8 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {FieldsetModule} from 'primeng/fieldset';
 import {FormsModule} from '@angular/forms';
+import {SidebarModule} from 'primeng/sidebar';
+import {MenubarModule} from 'primeng/menubar';
 
 @NgModule({
   imports: [
@@ -23,6 +25,8 @@ import {FormsModule} from '@angular/forms';
     InputTextModule,
     FieldsetModule,
     FormsModule,
+    SidebarModule,
+    MenubarModule
   ],
   declarations: [
     TimerComponent,
@@ -39,6 +43,8 @@ import {FormsModule} from '@angular/forms';
     InputTextModule,
     FieldsetModule,
     FormsModule,
+    SidebarModule,
+    MenubarModule
   ],
   providers:
     [ScoreService]

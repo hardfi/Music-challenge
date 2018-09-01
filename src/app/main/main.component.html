@@ -1,89 +1,91 @@
-<div class="ui-g-10 ui-g-offset-1">
-  <p-fieldset legend="Music Challenge">
-    <div class="ui-g-6">
-      <p-card [title]="teamOneName" styleClass="ui-card-shadow">
-        <p-header>
-          <img src="Card" src="assets/DC.jpg">
-        </p-header>
-        <div class="score vc">
-          {{teamOneScore}}
-        </div>
-        <p-footer>
-          <div class="vc">
-            <button pButton
-                    type="button"
-                    class="ui-button-secondary"
-                    (click)="showPopup('Team 1')"
-                    icon="pi pi-pencil">
-            </button>
-            <button pButton
-                    type="button"
-                    label="-1"
-                    (click)="subPoints('teamOneScore')"
-                    class="ui-button-warning big">
-            </button>
-            <button pButton
-                    type="button"
-                    label="+1"
-                    (click)="addPoints('teamOneScore', 1)"
-                    class="ui-button-success big">
-            </button>
-            <button pButton
-                    type="button"
-                    label="+2"
-                    (click)="addPoints('teamOneScore', 2)"
-                    class="ui-button-success big">
-            </button>
+<div class="ui-g-10 ui-g-offset-1 container">
+  <p-panel [showHeader]="false">
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <p-card [title]="teamOneName" styleClass="ui-card-shadow">
+          <p-header>
+            <img src="Card" src="assets/DC.jpg">
+          </p-header>
+          <div class="score vc">
+            {{teamOneScore}}
           </div>
-        </p-footer>
-      </p-card>
-    </div>
-    <div class="ui-g-6">
-      <p-card [title]="teamTwoName" styleClass="ui-card-shadow">
-        <p-header>
-          <img src="Card" src="assets/DC.jpg">
-        </p-header>
-        <div class="score vc">
-          {{teamTwoScore}}
-        </div>
-        <p-footer>
-          <div class="vc">
-            <button pButton
-                    type="button"
-                    class="ui-button-secondary"
-                    (click)="showPopup('Team 2')"
-                    icon="pi pi-pencil">
-            </button>
-            <button pButton
-                    type="button"
-                    label="-1"
-                    (click)="subPoints('teamTwoScore')"
-                    class="ui-button-warning big">
-            </button>
-            <button pButton
-                    type="button"
-                    label="+1"
-                    (click)="addPoints('teamTwoScore', 1)"
-                    class="ui-button-success big">
-            </button>
-            <button pButton
-                    type="button"
-                    label="+2"
-                    (click)="addPoints('teamTwoScore', 2)"
-                    class="ui-button-success big">
-            </button>
+          <p-footer>
+            <div class="vc">
+              <button pButton
+                      type="button"
+                      class="ui-button-secondary"
+                      (click)="showPopup('Team 1')"
+                      icon="pi pi-pencil">
+              </button>
+              <button pButton
+                      type="button"
+                      label="-1"
+                      (click)="subPoints('teamOneScore')"
+                      class="ui-button-warning big">
+              </button>
+              <button pButton
+                      type="button"
+                      label="+1"
+                      (click)="addPoints('teamOneScore', 1)"
+                      class="ui-button-success big">
+              </button>
+              <button pButton
+                      type="button"
+                      label="+2"
+                      (click)="addPoints('teamOneScore', 2)"
+                      class="ui-button-success big">
+              </button>
+            </div>
+          </p-footer>
+        </p-card>
+      </div>
+      <div class="ui-g-6">
+        <p-card [title]="teamTwoName" styleClass="ui-card-shadow">
+          <p-header>
+            <img src="Card" src="assets/DC.jpg">
+          </p-header>
+          <div class="score vc">
+            {{teamTwoScore}}
           </div>
-        </p-footer>
-      </p-card>
+          <p-footer>
+            <div class="vc">
+              <button pButton
+                      type="button"
+                      class="ui-button-secondary"
+                      (click)="showPopup('Team 2')"
+                      icon="pi pi-pencil">
+              </button>
+              <button pButton
+                      type="button"
+                      label="-1"
+                      (click)="subPoints('teamTwoScore')"
+                      class="ui-button-warning big">
+              </button>
+              <button pButton
+                      type="button"
+                      label="+1"
+                      (click)="addPoints('teamTwoScore', 1)"
+                      class="ui-button-success big">
+              </button>
+              <button pButton
+                      type="button"
+                      label="+2"
+                      (click)="addPoints('teamTwoScore', 2)"
+                      class="ui-button-success big">
+              </button>
+            </div>
+          </p-footer>
+        </p-card>
+      </div>
+      <app-timer class="ui-g-12 ui-g-nopad"></app-timer>
+      <div class="ui-g-12">
+        <p-card>
+          <a [routerLink]="['/round2']">Round 2</a> |
+          <a [routerLink]="['/round3']">Round 3</a>
+        </p-card>
+      </div>
     </div>
-    <app-timer></app-timer>
-    <div class="ui-g-12">
-      <p-card>
-        <a [routerLink]="['/round2']">Round 2</a> |
-        <a [routerLink]="['/round3']">Round 3</a>
-      </p-card>
-    </div>
-  </p-fieldset>
+  </p-panel>
 </div>
 
 <p-dialog [header]="selectedTeam + ' name'" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350"

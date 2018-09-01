@@ -16,13 +16,17 @@ import {RouterModule} from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { Round3Component } from './round3/round3.component';
 import {SharedModule} from './shared/shared.module';
+import { TopBarComponent } from './layout/top-bar/top-bar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     Round2Component,
-    Round3Component
+    Round3Component,
+    TopBarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
