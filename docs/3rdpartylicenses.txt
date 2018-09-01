@@ -366,6 +366,10 @@ MIT
 MIT
 MIT
 
+@angular/router@6.0.9
+MIT
+MIT
+
 @angular/core@6.0.9
 MIT
 MIT
