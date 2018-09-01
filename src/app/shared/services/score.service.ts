@@ -29,6 +29,8 @@ export class ScoreService {
     this.teamTwoSc = new BehaviorSubject<number>(this.teamTwoScore);
     this.teamOneNa = new BehaviorSubject<string>(this.teamOneName);
     this.teamTwoNa = new BehaviorSubject<string>(this.teamTwoName);
+
+    this.updateValues();
   }
 
   addPoints(team, amount?) {
