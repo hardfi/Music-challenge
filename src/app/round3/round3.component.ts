@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-round3',
   templateUrl: './round3.component.html',
-  styleUrls: ['./round3.component.css']
+  styleUrls: ['./round3.component.scss']
 })
 export class Round3Component implements OnInit {
   riddles: any[];

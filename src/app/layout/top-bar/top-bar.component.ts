@@ -5,7 +5,7 @@ import {NavigationStart, Router} from '@angular/router';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.css'],
+  styleUrls: ['./top-bar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class TopBarComponent implements OnInit {
