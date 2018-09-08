@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url.slice(1);
         setTimeout(() => {
-        this.changeMenu();
+          this.changeMenu();
         }, 200);
       }
     });
@@ -47,6 +47,10 @@ export class SidebarComponent implements OnInit {
     const tempRoutes = [...this.allRoutes];
     tempRoutes.forEach((route, index) => {
       if (route.route === this.currentUrl) {
+        tempRoutes.splice(index, 1);
+      }
+
+      if (this.currentUrl === '' && route.route === 'home') {
         tempRoutes.splice(index, 1);
       }
     });

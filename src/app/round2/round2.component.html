@@ -1,30 +1,36 @@
 <div class="ui-g-10 ui-g-offset-1 container">
   <p-fieldset legend="Music Challenge - Round 2">
     <app-scores></app-scores>
-    <div class="ui-g-12">
-      <p-panel class="ui-g-6"
-               [toggleable]="true"
-               [collapsed]="true"
-               #panel
-               *ngFor="let riddle of riddles"
-               [header]="riddle.title">
-        <div class="ui-g riddle">
-          <div (click)="showAnswer(riddle.answer)">{{riddle.text}}</div>
+    <div class="ui-g-12 ui-g-nopad">
+      <div *ngFor="let riddle of riddles" class="ui-g-6">
+        <div class="riddle">
+          <p>{{riddle.title}}</p>
+          <button pButton label="Show hint" (click)="showHint(riddle)"></button>
         </div>
-      </p-panel>
+      </div>
     </div>
     <app-timer></app-timer>
   </p-fieldset>
 </div>
 
-<p-dialog header="And the answer is..."
+<p-dialog header="And the hint is..."
+          *ngIf="currentRiddle"
           [(visible)]="display"
           [modal]="true"
           [responsive]="true"
           [width]="550"
-          [minWidth]="500"
+          [minWidth]="550"
           [minY]="70"
           [maximizable]="true"
           [baseZIndex]="10000">
-  <div style="font-size: 2em">{{answer}}</div>
+  <div>
+    <p>{{currentRiddle.text}}</p>
+    <div class="answer-cover vc fade-in" *ngIf="toggleAnswer">
+      <p class="fade-in-long">{{currentRiddle.answer}}</p>
+    </div>
+  </div>
+  <p-footer>
+    <button pButton label="Answer" *ngIf="!toggleAnswer" (click)="showAnswer()"></button>
+    <button pButton label="Close" *ngIf="toggleAnswer" (click)="display = false"></button>
+  </p-footer>
 </p-dialog>
